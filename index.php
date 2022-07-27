@@ -140,11 +140,11 @@ $movies = [
                         </div>
                         <div class="movie-cast">
                             <strong>Cast:</strong>
-                            <?php echo $movie->cast; ?>
+                            <?php echo $movie->getCast(); ?>
                         </div>
                         <p class="movie-plot">
                             <strong>Plot:</strong>
-                            <?php echo $movie->plot; ?>
+                            <?php echo $movie->getPlot(); ?>
                         </p>
                     </div>
                 </div>
