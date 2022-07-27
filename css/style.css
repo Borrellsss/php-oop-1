@@ -1,0 +1,72 @@
+/* ?VARIABLES? */
+:root {
+    --single-movie-space: 1.5rem;
+    --movie-rows: 5;
+    --movie-spaces: calc(var(--movie-rows) - 1)
+}
+
+/* *RESETS* */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+body {
+    font-family: sans-serif;
+}
+img {
+    width: 100%;
+    display: block;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* *COMMON* */
+.container {
+    margin-top: 4rem;
+    margin-inline: auto;
+    width: 80%;
+}
+.flex {
+    display: flex;
+}
+.container > .flex {
+    flex-wrap: wrap;
+    gap: calc((var(--single-movie-space) * var(--movie-rows)) / var(--movie-spaces));
+}
+
+/* *MOVIE* */
+.movie {
+    width: calc((100% / var(--movie-rows)) - var(--single-movie-space));
+    border-radius: 0.3rem;
+    position: relative;
+    overflow: hidden;
+}
+.movie-infos {
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.7rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    overflow-y: auto;
+    transition: all 300ms;
+}
+.movie-infos:hover {
+    opacity: 1;
+}
+.movie-infos :is(.movie-title, .movie-genre, .movie-date, .movie-duration, .movie-original-language, .movie-director, .movie-cast, .movie-plot) {
+    margin-bottom: 0.5rem;
+}
